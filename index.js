@@ -102,10 +102,10 @@ discordClient.on('messageCreate', async (message) => {
 
   if (cmd === '!help') {
     message.reply(`
-:cherry_blossom:  **\`!taxa <playerId> <suma> <locatie>\` • Inregistreaza o taxa**
+:cherry_blossom:  **\`!taxa <idPlayer> <suma> <locatie>\` • Inregistreaza o taxa**
 
 Tine cont de urmatoarele:  
-- \`playerId\` trebuie sa fie valid.  
+- \`idPlayer\` trebuie sa fie valid.  
 - \`suma\` trebuie sa fie intre \`100000\` si \`300000\`.  
 - \`locatie\` poate fi doar \`iarba\` sau \`pcp\`.  
 
@@ -143,14 +143,14 @@ Suma totala acumulata pana acum este de **\$${total}**, dintre care:
 Comanda gresita. Poti folosi doar una din urmatoarele:
 - \`!help\`
 - \`!suma\`
-- \`!taxa <playerId> <suma> <locatie>\`
+- \`!taxa <idPlayer> <suma> <locatie>\`
     `)
     return
   }
 
   if (cmd === '!taxa') {
     if (message.content.split(' ').length != 4) {
-      message.reply('Comanda gresita. Asigura-te ca ai dat toate datele necesare (`playerId`, `suma`, `locatie`).')
+      message.reply('Comanda gresita. Asigura-te ca ai dat toate datele necesare (`idPlayer`, `suma`, `locatie`).')
       return
     }
   }
@@ -166,7 +166,7 @@ Comanda gresita. Poti folosi doar una din urmatoarele:
   }
 
   if (Number(tax) < 100000 || Number(tax) > 300000) {
-    message.reply('Suma trebuie sa fie intre 100000 si 300000.')
+    message.reply('Suma trebuie sa fie intre \`100000\` si \`300000\`.')
     return
   }
 
